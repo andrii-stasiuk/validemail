@@ -21,8 +21,9 @@ var testValues = []emailAddresses{
 }
 
 func TestEMailValidator(t *testing.T) {
+	validator := New()
 	for _, tt := range testValues {
-		if res := EMailValidator(tt.email); res != tt.result {
+		if res := validator.EMailValidator(tt.email); res != tt.result {
 			t.Error("For", tt.email, "expected", tt.result, "got", res)
 		}
 	}
